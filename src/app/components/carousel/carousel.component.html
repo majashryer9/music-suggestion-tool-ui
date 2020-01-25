@@ -1,0 +1,13 @@
+<div class="w-100 h-100 position-relative">
+    <div [style.width]="containerWidth + 'px'" class="h-100 m-auto position-relative overflow-hidden">
+        <div class="d-flex position-absolute carousel-items-container" [style.transform]="translation">
+            <div *ngFor="let item of items; let i = index" [style.width]="widthOfEachItem + 'px'"
+                [style.margin-right]="spaceBetweenItems + 'px'"
+                [style.margin-left]="i === 0 ? spaceBetweenItems + 'px' : null">
+                <app-carousel-item [item]="item"></app-carousel-item>
+            </div>
+        </div>
+    </div>
+    <span (click)="slide(-1)" class="fas fa-angle-left arrow-icon-left"></span>
+    <span (click)="slide(1)" class="fas fa-angle-right arrow-icon-right"></span>
+</div>

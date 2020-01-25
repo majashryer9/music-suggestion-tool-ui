@@ -1,0 +1,20 @@
+.carousel-items-container {
+  transition: all 0.8s;
+}
+
+.arrow-icon {
+  font-size: 40px;
+  cursor: pointer;
+  top: calc(50% - 20px);
+  position: absolute;
+}
+
+.arrow-icon-left {
+  @extend .arrow-icon;
+  left: -20px;
+}
+
+.arrow-icon-right {
+  @extend .arrow-icon;
+  right: -20px;
+}
