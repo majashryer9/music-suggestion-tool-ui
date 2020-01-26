@@ -6,18 +6,24 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { SongChipComponent } from './components/song-chip/song-chip.component';
 import { CarouselItemComponent } from './components/carousel-item/carousel-item.component';
+import { TypeaheadComponent } from './components/typeahead/typeahead.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     CarouselComponent,
     SongChipComponent,
-    CarouselItemComponent
+    CarouselItemComponent,
+    TypeaheadComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    MDBBootstrapModule.forRoot()
+    MDBBootstrapModule.forRoot(),
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   entryComponents: [SongChipComponent],

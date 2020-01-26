@@ -1,0 +1,23 @@
+@import "../../../assets/style/global.scss";
+
+$search-result-height: 50px;
+$max-num-rows-to-show: 10;
+
+.search-results-container {
+  max-height: $search-result-height * $max-num-rows-to-show;
+  overflow-y: auto;
+  border: 1px solid $gray;
+}
+
+.search-result {
+  height: $search-result-height;
+  cursor: pointer;
+}
+
+.search-result:hover {
+  background-color: $gray;
+}
+
+.album-image {
+  width: $search-result-height;
+}
