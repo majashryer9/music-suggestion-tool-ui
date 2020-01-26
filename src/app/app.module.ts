@@ -9,6 +9,7 @@ import { CarouselItemComponent } from './components/carousel-item/carousel-item.
 import { TypeaheadComponent } from './components/typeahead/typeahead.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { CreatePlaylistPageComponent } from './pages/create-playlist-page/create-playlist-page.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { HttpClientModule } from '@angular/common/http';
     CarouselComponent,
     SongChipComponent,
     CarouselItemComponent,
-    TypeaheadComponent
+    TypeaheadComponent,
+    CreatePlaylistPageComponent
   ],
   imports: [
     BrowserModule,
