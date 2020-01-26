@@ -1,0 +1,25 @@
+<div class="row-container d-flex">
+    <img [src]="song.albumImageUrl" class="album-image" />
+    <div class="info-container pl-3 d-flex flex-column justify-content-center">
+        <div> {{ song.songName }} </div>
+        <div> {{ song.artistName }} </div>
+    </div>
+    <div class="suggestions-container d-flex justify-content-center align-items-center">
+        <span> Suggestions </span>
+        <span class="fas fa-angle-down ml-2 cursor-pointer"></span>
+    </div>
+    <div class="remove-container d-flex justify-content-center align-items-center">
+        <span (click)="playlistService.removeSongFromPlaylist(song.spotifyTrackId)"
+            class="fas fa-times cursor-pointer"></span>
+    </div>
+    <div class="audio-container d-flex justify-content-center align-items-center">
+        <div *ngIf="song.songPreviewUrl" (click)="handleAudioClick()">
+            <audio #previewAudio [src]="song.songPreviewUrl"></audio>
+            <span *ngIf="audioService.refAndIdOfSongPlaying.id !== song.spotifyTrackId; else pause"
+                class="fas fa-play cursor-pointer"></span>
+            <ng-template #pause>
+                <span class="fas fa-pause cursor-pointer"></span>
+            </ng-template>
+        </div>
+    </div>
+</div>

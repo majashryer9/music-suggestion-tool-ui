@@ -1,0 +1,26 @@
+@import "../../../assets/style/global.scss";
+
+.row-container {
+  border-bottom: 1px solid $gray;
+}
+
+.album-image {
+  height: 100px;
+  width: 100px;
+}
+
+.info-container {
+  width: 60%;
+}
+
+.suggestions-container {
+  width: 20%;
+}
+
+.remove-container {
+  width: 10%;
+}
+
+.audio-container {
+  width: 10%;
+}

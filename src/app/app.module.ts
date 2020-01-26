@@ -10,6 +10,8 @@ import { TypeaheadComponent } from './components/typeahead/typeahead.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CreatePlaylistPageComponent } from './pages/create-playlist-page/create-playlist-page.component';
+import { PlaylistTableComponent } from './components/playlist-table/playlist-table.component';
+import { TableRowComponent } from './components/table-row/table-row.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { CreatePlaylistPageComponent } from './pages/create-playlist-page/create
     SongChipComponent,
     CarouselItemComponent,
     TypeaheadComponent,
-    CreatePlaylistPageComponent
+    CreatePlaylistPageComponent,
+    PlaylistTableComponent,
+    TableRowComponent
   ],
   imports: [
     BrowserModule,
