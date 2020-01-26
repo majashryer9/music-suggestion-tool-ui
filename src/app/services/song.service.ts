@@ -16,4 +16,11 @@ export class SongService {
     };
     return this.http.post(`${environment.baseUrl}/song/spotify-song-search`, body);
   }
+
+  getSuggestions(spotifyTrackIds: string[]): Observable<object> {
+    const body = {
+      spotifyTrackIds
+    };
+    return this.http.post(`${environment.baseUrl}/song/recommendations`, body);
+  }
 }

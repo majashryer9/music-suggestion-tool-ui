@@ -12,6 +12,7 @@ export class TableRowComponent implements OnInit {
 
   @Input() song: Song;
   @ViewChild('previewAudio', { static: false }) previewAudio: ElementRef<HTMLAudioElement>;
+  showSuggestions: boolean;
   constructor(public playlistService: PlaylistService, public audioService: AudioService) { }
 
   ngOnInit() {

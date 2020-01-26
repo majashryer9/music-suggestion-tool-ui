@@ -4,9 +4,13 @@
         <div> {{ song.songName }} </div>
         <div> {{ song.artistName }} </div>
     </div>
-    <div class="suggestions-container d-flex justify-content-center align-items-center">
+    <div (click)="showSuggestions = !showSuggestions"
+        class="suggestions-container d-flex justify-content-center align-items-center">
         <span> Suggestions </span>
-        <span class="fas fa-angle-down ml-2 cursor-pointer"></span>
+        <span *ngIf="showSuggestions; else arrowDown" class="fas fa-angle-up ml-2 cursor-pointer"></span>
+        <ng-template #arrowDown>
+            <span class="fas fa-angle-down ml-2 cursor-pointer"></span>
+        </ng-template>
     </div>
     <div class="remove-container d-flex justify-content-center align-items-center">
         <span (click)="playlistService.removeSongFromPlaylist(song.spotifyTrackId)"
@@ -23,3 +27,4 @@
         </div>
     </div>
 </div>
+<app-row-dropdown [showSuggestions]="showSuggestions" [spotifyTrackId]="song.spotifyTrackId"></app-row-dropdown>

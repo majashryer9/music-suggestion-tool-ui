@@ -1,14 +1,14 @@
 <div class="d-flex song-chip-container">
-    <img [src]="data.albumImageUrl" class="album-image mr-3" />
-    <div class="mr-5 d-flex flex-column justify-content-center">
-        <div>
+    <img [src]="data.albumImageUrl" class="album-image" />
+    <div class="pl-2 d-flex flex-column justify-content-center">
+        <div class="song-info text-truncate">
             {{ data.songName }}
         </div>
-        <div>
+        <div class="song-info text-truncate">
             {{ data.artistName}}
         </div>
     </div>
-    <div class="d-flex align-items-center">
-        <span class="fas fa-plus"></span>
+    <div class="add-container d-flex justify-content-center align-items-center">
+        <span (click)="playlistService.addSongToPlaylist(data)" class="fas fa-plus cursor-pointer"></span>
     </div>
 </div>

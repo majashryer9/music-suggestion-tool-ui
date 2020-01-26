@@ -12,6 +12,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { CreatePlaylistPageComponent } from './pages/create-playlist-page/create-playlist-page.component';
 import { PlaylistTableComponent } from './components/playlist-table/playlist-table.component';
 import { TableRowComponent } from './components/table-row/table-row.component';
+import { RowDropdownComponent } from './components/row-dropdown/row-dropdown.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -22,14 +24,16 @@ import { TableRowComponent } from './components/table-row/table-row.component';
     TypeaheadComponent,
     CreatePlaylistPageComponent,
     PlaylistTableComponent,
-    TableRowComponent
+    TableRowComponent,
+    RowDropdownComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     MDBBootstrapModule.forRoot(),
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   entryComponents: [SongChipComponent],

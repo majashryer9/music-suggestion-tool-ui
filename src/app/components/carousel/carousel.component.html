@@ -1,6 +1,7 @@
 <div class="w-100 h-100 position-relative">
     <div [style.width]="containerWidth + 'px'" class="h-100 m-auto position-relative overflow-hidden">
-        <div class="d-flex position-absolute carousel-items-container" [style.transform]="translation">
+        <div class="d-flex align-items-center position-absolute h-100 carousel-items-container"
+            [style.transform]="translation">
             <div *ngFor="let item of items; let i = index" [style.width]="widthOfEachItem + 'px'"
                 [style.margin-right]="spaceBetweenItems + 'px'"
                 [style.margin-left]="i === 0 ? spaceBetweenItems + 'px' : null">

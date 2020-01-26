@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Song } from 'src/app/models/Song';
+import { PlaylistService } from 'src/app/services/playlist.service';
 
 @Component({
   selector: 'app-song-chip',
@@ -9,7 +10,7 @@ import { Song } from 'src/app/models/Song';
 export class SongChipComponent implements OnInit {
 
   @Input() data: Song;
-  constructor() { }
+  constructor(public playlistService: PlaylistService) { }
 
   ngOnInit() {
   }
