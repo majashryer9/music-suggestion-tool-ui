@@ -1,3 +1,14 @@
-<div>
-    {{ data }}
+<div class="d-flex song-chip-container">
+    <img [src]="data.albumImageUrl" class="album-image mr-3" />
+    <div class="mr-5 d-flex flex-column justify-content-center">
+        <div>
+            {{ data.songName }}
+        </div>
+        <div>
+            {{ data.artistName}}
+        </div>
+    </div>
+    <div class="d-flex align-items-center">
+        <span class="fas fa-plus"></span>
+    </div>
 </div>

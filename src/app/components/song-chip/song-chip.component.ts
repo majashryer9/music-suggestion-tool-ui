@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Song } from 'src/app/models/Song';
 
 @Component({
   selector: 'app-song-chip',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SongChipComponent implements OnInit {
 
-  data;
+  @Input() data: Song;
   constructor() { }
 
   ngOnInit() {
