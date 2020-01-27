@@ -9,9 +9,7 @@
 <div *ngIf="searchResults.length && showSearchResults" class="search-results-container">
     <div *ngFor="let searchResult of searchResults" (mousedown)="playlistService.addSongToPlaylist(searchResult)"
         class="d-flex cursor-pointer search-result">
-        <div *ngIf="searchResult.albumImageUrl" class="mr-2">
-            <img [src]="searchResult.albumImageUrl" class="h-100 album-image" />
-        </div>
+        <img [src]="searchResult.albumImageUrl" class="h-100 mr-2 album-image" />
         <div class="d-flex align-items-center text-nowrap overflow-hidden">
             {{ searchResult.songName }} by {{ searchResult.artistName }}
         </div>

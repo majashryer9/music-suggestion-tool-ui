@@ -17,6 +17,7 @@ export class AudioService {
 
   pauseCurrentSongPlaying(): void {
     this.refAndIdOfSongPlaying.ref.nativeElement.pause();
+    this.refAndIdOfSongPlaying.ref.nativeElement.currentTime = 0;
     clearTimeout(this.timeout);
     this.refAndIdOfSongPlaying = { ref: null, id: '' };
   }

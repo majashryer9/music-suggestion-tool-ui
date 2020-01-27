@@ -1,5 +1,18 @@
-<div class="d-flex song-chip-container">
-    <img [src]="data.albumImageUrl" class="album-image" />
+<div class="d-flex song-chip-container" (mouseover)="hovering = true" (mouseout)="hovering = false">
+    <div class="position-relative">
+        <img [src]="data.albumImageUrl"
+            [class.opacity]="data.songPreviewUrl && (hovering || audioService.refAndIdOfSongPlaying.id === data.spotifyTrackId)"
+            class="album-image" />
+        <div *ngIf="data.songPreviewUrl" (click)="handleAudioClick()"
+            class="audio-overlay position-absolute d-flex justify-content-center align-items-center">
+            <audio #previewAudio [src]="data.songPreviewUrl"></audio>
+            <span *ngIf="audioService.refAndIdOfSongPlaying.id !== data.spotifyTrackId; else pause"
+                class="fas fa-play cursor-pointer play-pause-icon"></span>
+            <ng-template #pause>
+                <span class="fas fa-pause cursor-pointer play-pause-icon"></span>
+            </ng-template>
+        </div>
+    </div>
     <div class="pl-2 d-flex flex-column justify-content-center">
         <div class="song-info text-truncate">
             {{ data.songName }}
