@@ -32,6 +32,7 @@ export class RowDropdownComponent implements OnInit, OnChanges {
   @Input() spotifyTrackId: string;
   @Input() showSuggestions: boolean;
   carouselItems: CarouselItem<Song, SongChipComponent>[] = [];
+  loading: boolean;
   constructor(private songService: SongService) { }
 
   ngOnInit() {
@@ -47,12 +48,13 @@ export class RowDropdownComponent implements OnInit, OnChanges {
   }
 
   getSuggestions(): void {
+    this.loading = true;
     const observer: Observer<Song[]> = {
       next: songSuggestions => {
         this.carouselItems = songSuggestions.map(song => ({ data: song, component: SongChipComponent }));
       },
       error: () => { },
-      complete: () => { }
+      complete: () => { this.loading = false; }
     };
     this.songService.getSuggestions([this.spotifyTrackId]).subscribe(observer);
   }

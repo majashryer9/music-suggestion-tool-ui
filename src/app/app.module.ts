@@ -14,6 +14,7 @@ import { PlaylistTableComponent } from './components/playlist-table/playlist-tab
 import { TableRowComponent } from './components/table-row/table-row.component';
 import { RowDropdownComponent } from './components/row-dropdown/row-dropdown.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PlaylistImageComponent } from './components/playlist-image/playlist-image.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     CreatePlaylistPageComponent,
     PlaylistTableComponent,
     TableRowComponent,
-    RowDropdownComponent
+    RowDropdownComponent,
+    PlaylistImageComponent
   ],
   imports: [
     BrowserModule,

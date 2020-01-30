@@ -1,0 +1,6 @@
+<div *ngIf="imageUrls" class="d-flex flex-column align-items-center justify-content-center">
+    <img [src]="imageUrls[selectedImageUrlIndex]" class="playlist-image" />
+    <button (click)="getNewPlaylistImage()" mdbBtn type="button" color="elegant" mdbWavesEffect>
+        Get a new playlist image
+    </button>
+</div>

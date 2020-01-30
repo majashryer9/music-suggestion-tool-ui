@@ -1,4 +1,11 @@
 <div [@openClose]="showSuggestions? 'open' : 'closed'" class="overflow-hidden">
-    <app-carousel [items]="carouselItems" [numItemsToShowAtOneTime]="3" [widthOfEachItem]="300"
-        [spaceBetweenItems]="10"></app-carousel>
+    <div *ngIf="loading; else carousel" class="h-100 w-100 d-flex justify-content-center align-items-center">
+        <div class="spinner-border" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <ng-template #carousel>
+        <app-carousel [items]="carouselItems" [numItemsToShowAtOneTime]="3" [widthOfEachItem]="300"
+            [spaceBetweenItems]="10"></app-carousel>
+    </ng-template>
 </div>

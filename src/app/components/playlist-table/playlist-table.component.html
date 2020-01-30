@@ -1,3 +1,11 @@
-<div>
+<div *ngIf="playlistService.songs.length" class="mt-4">
+    <div class="d-flex align-items-center justify-content-between">
+        <h4> Your Playlist: </h4>
+        <button *ngIf="5 >= playlistService.songs.length && playlistService.songs.length >= 3"
+            (click)="generatePlaylist()" mdbBtn type="button" color="elegant" mdbWavesEffect>
+            <span class="mr-2"> Generate playlist </span>
+            <span class="fas fa-music"></span>
+        </button>
+    </div>
     <app-table-row *ngFor="let song of playlistService.songs" [song]="song"></app-table-row>
 </div>

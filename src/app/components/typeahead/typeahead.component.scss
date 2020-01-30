@@ -1,7 +1,7 @@
 @import "../../../assets/style/global.scss";
 
 $search-result-height: 50px;
-$max-num-rows-to-show: 10;
+$max-num-rows-to-show: 5;
 
 .search-results-container {
   max-height: $search-result-height * $max-num-rows-to-show;

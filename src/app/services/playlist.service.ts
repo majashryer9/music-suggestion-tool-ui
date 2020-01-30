@@ -1,6 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Song } from '../models/Song';
 import { AudioService } from './audio.service';
+import { environment } from 'src/environments/environment';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Playlist } from '../models/Playlist';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +12,8 @@ import { AudioService } from './audio.service';
 export class PlaylistService {
 
   songs: Song[] = [];
-  constructor(private audioService: AudioService) { }
+  imageUrl: string;
+  constructor(private audioService: AudioService, private http: HttpClient) { }
 
   addSongToPlaylist(songToAdd: Song): void {
     // Only add if song isn't already in the array
@@ -24,5 +29,29 @@ export class PlaylistService {
       // If the song was playing when removed, clear the audio data
       this.audioService.clearAudioData();
     }
+  }
+
+  getPlaylistImage(query?: string): Observable<object> {
+    const url = `${environment.baseUrl}/playlist/image`;
+    const body = {
+      query
+    };
+    return this.http.post(url, body);
+  }
+
+  savePlaylist(playlist: Playlist): Observable<object> {
+    const url = `${environment.baseUrl}/playlist/save`;
+    const body = {
+      playlist
+    };
+    return this.http.post(url, body);
+  }
+
+  generatePlaylist(spotifyTrackIds: string[]): Observable<object> {
+    const url = `${environment.baseUrl}/playlist/generate`;
+    const body = {
+      spotifyTrackIds
+    };
+    return this.http.post(url, body);
   }
 }
