@@ -1,0 +1,13 @@
+<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark elegant-color-dark">
+    <mdb-navbar-brand (click)="setActiveLink('')">
+        <a class="navbar-brand" [routerLink]="['']"> App Title Here </a>
+    </mdb-navbar-brand>
+    <links>
+        <ul class="navbar-nav mr-auto">
+            <li *ngFor="let navLink of navLinks" (click)="setActiveLink(navLink.route)" class="nav-item"
+                [class.active]="navLink.active">
+                <a [routerLink]="[navLink.route]" class="nav-link waves-light" mdbWavesEffect> {{ navLink.linkName }} </a>
+            </li>
+        </ul>
+    </links>
+</mdb-navbar>

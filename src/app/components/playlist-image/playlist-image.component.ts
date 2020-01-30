@@ -9,7 +9,6 @@ import { Observer } from 'rxjs';
 })
 export class PlaylistImageComponent implements OnInit, AfterViewInit {
 
-
   imageUrls: string[];
   selectedImageUrlIndex = 0;
   loading: boolean;
