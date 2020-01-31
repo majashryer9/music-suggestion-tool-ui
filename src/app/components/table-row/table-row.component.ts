@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ElementRef, OnDestroy } from '@angular/core';
 import { Song } from 'src/app/models/Song';
 import { AudioService } from 'src/app/services/audio.service';
 import { PlaylistService } from 'src/app/services/playlist.service';
@@ -8,7 +8,7 @@ import { PlaylistService } from 'src/app/services/playlist.service';
   templateUrl: './table-row.component.html',
   styleUrls: ['./table-row.component.scss']
 })
-export class TableRowComponent implements OnInit {
+export class TableRowComponent implements OnInit, OnDestroy {
 
   @Input() song: Song;
   @ViewChild('previewAudio', { static: false }) previewAudio: ElementRef<HTMLAudioElement>;
@@ -16,6 +16,10 @@ export class TableRowComponent implements OnInit {
   constructor(public playlistService: PlaylistService, public audioService: AudioService) { }
 
   ngOnInit() {
+  }
+
+  ngOnDestroy() {
+    this.audioService.clearDataIfGivenSongIsPlaying(this.song.spotifyTrackId);
   }
 
   handleAudioClick(): void {

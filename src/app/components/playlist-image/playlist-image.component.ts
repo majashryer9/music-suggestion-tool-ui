@@ -9,9 +9,9 @@ import { Observer } from 'rxjs';
 })
 export class PlaylistImageComponent implements OnInit, AfterViewInit {
 
-  imageUrls: string[];
+  imageUrls: string[] = [];
   selectedImageUrlIndex = 0;
-  loading: boolean;
+  loading = true;
   constructor(private playlistService: PlaylistService) { }
 
   ngOnInit() {

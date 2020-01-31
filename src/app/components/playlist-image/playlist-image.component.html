@@ -1,6 +1,15 @@
-<div *ngIf="imageUrls" class="d-flex flex-column align-items-center justify-content-center">
-    <img [src]="imageUrls[selectedImageUrlIndex]" class="playlist-image" />
-    <button (click)="getNewPlaylistImage()" mdbBtn type="button" color="elegant" mdbWavesEffect>
-        Get a new playlist image
-    </button>
+<div class="height-445 mt-4">
+    <div *ngIf="loading; else playlistImage" class="h-100 w-100 d-flex justify-content-center align-items-center">
+        <div class="spinner-border" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <ng-template #playlistImage>
+        <div *ngIf="imageUrls.length" class="d-flex flex-column align-items-center justify-content-center">
+            <img [src]="imageUrls[selectedImageUrlIndex]" class="playlist-image" />
+            <button (click)="getNewPlaylistImage()" mdbBtn type="button" color="elegant" mdbWavesEffect>
+                Get a new playlist image
+            </button>
+        </div>
+    </ng-template>
 </div>

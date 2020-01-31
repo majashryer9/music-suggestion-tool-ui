@@ -10,9 +10,12 @@ export class AudioService {
   timeout;
   constructor() { }
 
-  clearAudioData(): void {
-    clearTimeout(this.timeout);
-    this.refAndIdOfSongPlaying = { ref: null, id: '' };
+  clearDataIfGivenSongIsPlaying(id: string): void {
+    // This method is to be used whenever an audio html element is removed from the DOM
+    if (id === this.refAndIdOfSongPlaying.id) {
+      clearTimeout(this.timeout);
+      this.refAndIdOfSongPlaying = { ref: null, id: '' };
+    }
   }
 
   pauseCurrentSongPlaying(): void {

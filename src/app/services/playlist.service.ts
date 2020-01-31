@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Song } from '../models/Song';
-import { AudioService } from './audio.service';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -13,7 +12,7 @@ export class PlaylistService {
 
   songs: Song[] = [];
   imageUrl: string;
-  constructor(private audioService: AudioService, private http: HttpClient) { }
+  constructor(private http: HttpClient) { }
 
   addSongToPlaylist(songToAdd: Song): void {
     // Only add if song isn't already in the array
@@ -25,10 +24,6 @@ export class PlaylistService {
 
   removeSongFromPlaylist(idOfSongToRemove: string): void {
     this.songs = this.songs.filter(song => song.spotifyTrackId !== idOfSongToRemove);
-    if (idOfSongToRemove === this.audioService.refAndIdOfSongPlaying.id) {
-      // If the song was playing when removed, clear the audio data
-      this.audioService.clearAudioData();
-    }
   }
 
   getPlaylistImage(query?: string): Observable<object> {
