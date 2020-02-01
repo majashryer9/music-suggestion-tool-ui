@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChild, ElementRef, OnDestroy } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ElementRef, OnDestroy, Output, EventEmitter } from '@angular/core';
 import { Song } from 'src/app/models/Song';
 import { PlaylistService } from 'src/app/services/playlist.service';
 import { AudioService } from 'src/app/services/audio.service';
@@ -10,6 +10,8 @@ import { AudioService } from 'src/app/services/audio.service';
 })
 export class SongChipComponent implements OnInit, OnDestroy {
 
+  @Output() removeItemFromCarousel = new EventEmitter();
+  @Input() id: string;
   @Input() data: Song;
   @ViewChild('previewAudio', { static: false }) previewAudio: ElementRef<HTMLAudioElement>;
   hovering: boolean;
@@ -29,4 +31,8 @@ export class SongChipComponent implements OnInit, OnDestroy {
     });
   }
 
+  addSongToPlaylist(): void {
+    this.playlistService.addSongToPlaylist(this.data);
+    this.removeItemFromCarousel.emit(this.id);
+  }
 }

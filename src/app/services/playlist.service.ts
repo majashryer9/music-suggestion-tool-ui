@@ -17,7 +17,7 @@ export class PlaylistService {
   addSongToPlaylist(songToAdd: Song): void {
     // Only add if song isn't already in the array
     if (!this.songs.some(song => song.spotifyTrackId === songToAdd.spotifyTrackId)) {
-      this.songs.push(songToAdd);
+      this.songs.unshift(songToAdd);
     }
     // TODO: Error message if they try to add the same song more than once
   }
@@ -46,6 +46,15 @@ export class PlaylistService {
     const url = `${environment.baseUrl}/playlist/generate`;
     const body = {
       spotifyTrackIds
+    };
+    return this.http.post(url, body);
+  }
+
+  getNextNPlaylists(lastTimestamp: number): Observable<any> {
+    const url = `${environment.baseUrl}/playlist/get-next`;
+    const body = {
+      n: 10,
+      lastTimestamp
     };
     return this.http.post(url, body);
   }

@@ -41,7 +41,6 @@ export class RowDropdownComponent implements OnInit, OnChanges {
   ngOnChanges(changes: SimpleChanges) {
     for (const key in changes) {
       if (key === 'showSuggestions' && changes[key].currentValue && !this.carouselItems.length) {
-        // Only get suggestions if there aren't any already
         this.getSuggestions();
       }
     }
@@ -51,7 +50,7 @@ export class RowDropdownComponent implements OnInit, OnChanges {
     this.loading = true;
     const observer: Observer<Song[]> = {
       next: songSuggestions => {
-        this.carouselItems = songSuggestions.map(song => ({ data: song, component: SongChipComponent }));
+        this.carouselItems = songSuggestions.map(song => ({ id: song.spotifyTrackId, data: song, component: SongChipComponent }));
       },
       error: () => { },
       complete: () => { this.loading = false; }

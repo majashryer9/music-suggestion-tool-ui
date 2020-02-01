@@ -1,1 +1,7 @@
-<p>home-page works!</p>
+<div class="container">
+    <div class="row">
+        <div *ngFor="let playlist of playlists" class="col-sm-4">
+            <img [src]="playlist.imageUrl" class="playlist-image" />
+        </div>
+    </div>
+</div>

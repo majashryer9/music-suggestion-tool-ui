@@ -5,7 +5,8 @@
             <div *ngFor="let item of items; let i = index" [style.width]="widthOfEachItem + 'px'"
                 [style.margin-right]="spaceBetweenItems + 'px'"
                 [style.margin-left]="i === 0 ? spaceBetweenItems + 'px' : null">
-                <app-carousel-item [item]="item"></app-carousel-item>
+                <app-carousel-item [item]="item" (removeItemFromCarousel)="removeItemFromCarousel($event)">
+                </app-carousel-item>
             </div>
         </div>
     </div>

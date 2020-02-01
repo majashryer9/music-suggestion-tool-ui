@@ -32,4 +32,8 @@ export class CarouselComponent implements OnInit {
   setTranslation(): void {
     this.translation = `translateX(-${this.curIndex * (this.widthOfEachItem + this.spaceBetweenItems)}px)`;
   }
+
+  removeItemFromCarousel(id: string): void {
+    this.items = this.items.filter(item => item.id !== id);
+  }
 }
