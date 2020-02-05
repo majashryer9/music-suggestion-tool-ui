@@ -50,11 +50,19 @@ export class PlaylistService {
     return this.http.post(url, body);
   }
 
-  getNextNPlaylists(lastTimestamp: number): Observable<any> {
+  getNextNPlaylists(lastTimestamp: number): Observable<object> {
     const url = `${environment.baseUrl}/playlist/get-next`;
     const body = {
       n: 10,
       lastTimestamp
+    };
+    return this.http.post(url, body);
+  }
+
+  getAllPlaylistsContainingSongs(spotifyTrackIds: string[]): Observable<object> {
+    const url = `${environment.baseUrl}/playlist/get-containing-songs`;
+    const body = {
+      spotifyTrackIds
     };
     return this.http.post(url, body);
   }

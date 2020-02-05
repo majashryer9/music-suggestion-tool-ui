@@ -1,10 +1,8 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input, Output, EventEmitter } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-import { Subscription, Observer } from 'rxjs';
+import { Subscription, Observer, Observable } from 'rxjs';
 import { switchMap, debounceTime } from 'rxjs/operators';
 import { Song } from 'src/app/models/Song';
-import { SongService } from 'src/app/services/song.service';
-import { PlaylistService } from 'src/app/services/playlist.service';
 
 @Component({
   selector: 'app-typeahead',
@@ -19,7 +17,9 @@ export class TypeaheadComponent implements OnInit, OnDestroy {
   subscription: Subscription;
   searchResults: Song[] = [];
   showSearchResults: boolean;
-  constructor(private fb: FormBuilder, private songService: SongService, public playlistService: PlaylistService) { }
+  @Output() searchResultSelected = new EventEmitter();
+  @Input() search: (searchTerm: string) => Observable<object>;
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit() {
     const observer: Observer<Song[]> = {
@@ -28,8 +28,8 @@ export class TypeaheadComponent implements OnInit, OnDestroy {
       complete: () => { }
     };
     this.subscription = this.searchForm.get('searchTerm').valueChanges.pipe(
-      debounceTime(200),
-      switchMap(value => this.songService.songSearch(value))
+      debounceTime(300),
+      switchMap(value => this.search(value))
     )
       .subscribe(observer);
   }

@@ -10,11 +10,12 @@ export class SongService {
 
   constructor(private http: HttpClient) { }
 
-  songSearch(searchTerm: string): Observable<object> {
+  songSearch(searchTerm: string, spotifySearch: boolean): Observable<object> {
     const body = {
       searchTerm
     };
-    return this.http.post(`${environment.baseUrl}/song/spotify-song-search`, body);
+    const url = `${environment.baseUrl}/song/${spotifySearch ? 'spotify-song-search' : 'search'}`;
+    return this.http.post(url, body);
   }
 
   getSuggestions(spotifyTrackIds: string[]): Observable<object> {

@@ -7,7 +7,7 @@
 </form>
 
 <div *ngIf="searchResults.length && showSearchResults" class="search-results-container">
-    <div *ngFor="let searchResult of searchResults" (mousedown)="playlistService.addSongToPlaylist(searchResult)"
+    <div *ngFor="let searchResult of searchResults" (mousedown)="searchResultSelected.emit(searchResult)"
         class="d-flex cursor-pointer search-result">
         <img [src]="searchResult.albumImageUrl" class="h-100 mr-2 album-image" />
         <div class="d-flex align-items-center text-nowrap overflow-hidden">
