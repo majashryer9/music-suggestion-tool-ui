@@ -10,7 +10,6 @@ import { AudioService } from 'src/app/services/audio.service';
 })
 export class SongChipComponent implements OnInit, OnDestroy {
 
-  @Output() removeItemFromCarousel = new EventEmitter();
   @Input() id: string;
   @Input() data: Song;
   @ViewChild('previewAudio', { static: false }) previewAudio: ElementRef<HTMLAudioElement>;
@@ -29,10 +28,5 @@ export class SongChipComponent implements OnInit, OnDestroy {
       ref: this.previewAudio,
       id: this.data.spotifyTrackId
     });
-  }
-
-  addSongToPlaylist(): void {
-    this.playlistService.addSongToPlaylist(this.data);
-    this.removeItemFromCarousel.emit(this.id);
   }
 }
