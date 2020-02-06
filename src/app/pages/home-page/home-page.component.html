@@ -6,8 +6,8 @@
         </div>
     </div>
     <div class="row">
-        <div *ngFor="let playlist of playlists" class="col-sm-4">
-            <img [src]="playlist.imageUrl" class="playlist-image" />
+        <div *ngFor="let playlist of playlists" class="col-sm-4 d-flex justify-content-center">
+            <app-playlist-card [playlist]="playlist"></app-playlist-card>
         </div>
     </div>
 </div>

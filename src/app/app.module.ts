@@ -18,6 +18,7 @@ import { RowDropdownComponent } from './components/row-dropdown/row-dropdown.com
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PlaylistImageComponent } from './components/playlist-image/playlist-image.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { PlaylistCardComponent } from './components/playlist-card/playlist-card.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
     TableRowComponent,
     RowDropdownComponent,
     PlaylistImageComponent,
-    NavBarComponent
+    NavBarComponent,
+    PlaylistCardComponent
   ],
   imports: [
     BrowserModule,
