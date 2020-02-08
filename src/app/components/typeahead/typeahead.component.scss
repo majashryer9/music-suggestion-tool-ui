@@ -7,6 +7,7 @@ $max-num-rows-to-show: 5;
   max-height: $search-result-height * $max-num-rows-to-show;
   overflow-y: auto;
   border: 1px solid $gray;
+  background-color: white;
 }
 
 .search-result {

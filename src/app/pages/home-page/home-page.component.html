@@ -1,11 +1,11 @@
-<div class="container">
-    <div class="row">
+<div class="container position-relative">
+    <div class="row position-absolute w-100 z-index-1">
         <div class="col-sm-12">
             <app-typeahead (searchResultSelected)="getAllPlaylistsContainingSong($event)" [search]="search">
             </app-typeahead>
         </div>
     </div>
-    <div class="row">
+    <div class="row position-relative top-100">
         <div *ngFor="let playlist of playlists" class="col-sm-4 d-flex justify-content-center">
             <app-playlist-card [playlist]="playlist"></app-playlist-card>
         </div>

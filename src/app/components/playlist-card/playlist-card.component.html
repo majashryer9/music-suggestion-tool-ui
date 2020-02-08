@@ -1,4 +1,9 @@
-<img (click)="playlistCardModal.show()" [src]="playlist.imageUrl" class="playlist-image" />
+<div class="position-relative cursor-pointer" (click)="playlistCardModal.show()">
+    <img [src]="playlist.imageUrl" class="playlist-image" />
+    <div class="playlist-date-container">
+        <div> {{ playlist.timestamp | date: 'shortDate' }} </div>
+    </div>
+</div>
 
 <div mdbModal #playlistCardModal="mdbModal" class="modal fade" tabindex="-1" role="dialog"
     aria-labelledby="playlistCardModal" aria-hidden="true">

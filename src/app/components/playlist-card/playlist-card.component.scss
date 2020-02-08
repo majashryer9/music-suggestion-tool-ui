@@ -1,0 +1,17 @@
+@import "../../../assets/style/global.scss";
+
+.playlist-date-container {
+  @extend .overlay;
+  color: white;
+  font-size: 40px;
+  div {
+    visibility: hidden;
+  }
+}
+
+.playlist-date-container:hover {
+  background-color: rgba(black, 0.2);
+  div {
+    visibility: visible;
+  }
+}

@@ -4,7 +4,7 @@
             [class.opacity]="data.songPreviewUrl && (hovering || audioService.refAndIdOfSongPlaying.id === data.spotifyTrackId)"
             class="album-image" />
         <div *ngIf="data.songPreviewUrl" (click)="handleAudioClick()"
-            class="audio-overlay position-absolute d-flex justify-content-center align-items-center">
+            class="overlay">
             <audio #previewAudio [src]="data.songPreviewUrl"></audio>
             <span *ngIf="audioService.refAndIdOfSongPlaying.id !== data.spotifyTrackId; else pause"
                 class="fas fa-play cursor-pointer play-pause-icon"></span>
